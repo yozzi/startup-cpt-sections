@@ -155,6 +155,23 @@ function startup_reloaded_sections_meta() {
     ) );
     
     $cmb_box->add_field( array(
+        'name'    => __( 'Text color', 'cmb2' ),
+        'id'      => $prefix . 'color',
+        'type'    => 'colorpicker',
+        'default' => ''
+    ) );
+    
+    $cmb_box->add_field( array(
+		'name' => __( 'Background image', 'cmb2' ),
+		'id'   => $prefix . 'background',
+		'type' => 'file',
+        // Optionally hide the text input for the url:
+        'options' => array(
+            'url' => false,
+        ),
+	) );
+    
+    $cmb_box->add_field( array(
 		'name'             => __( 'Background image position', 'cmb2' ),
 		'id'               => $prefix . 'background_position',
 		'type'             => 'select',
@@ -168,7 +185,7 @@ function startup_reloaded_sections_meta() {
     
     $cmb_box->add_field( array(
         'name'    => __( 'Video', 'cmb2' ),
-        'desc'             => __( 'YouTube url for background video. Always use in first slide only to prevent CPU load.', 'cmb2' ),
+        'desc'             => __( 'YouTube url for background video.', 'cmb2' ),
         'id'      => $prefix . 'background_video',
         'type'    => 'text'
     ) );
