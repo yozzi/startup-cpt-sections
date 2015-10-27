@@ -231,7 +231,7 @@ function startup_reloaded_sections_meta() {
 	) );
 }
 
-add_action( 'cmb2_init', 'startup_reloaded_sections_meta' );
+add_action( 'cmb2_admin_init', 'startup_reloaded_sections_meta' );
 
 // Shortcode
 function startup_reloaded_sections_shortcode( $atts ) {
