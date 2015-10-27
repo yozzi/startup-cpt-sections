@@ -232,4 +232,64 @@ function startup_reloaded_sections_meta() {
 }
 
 add_action( 'cmb2_init', 'startup_reloaded_sections_meta' );
+
+// Shortcode
+function startup_reloaded_sections_shortcode( $atts ) {
+
+	// Attributes
+    $atts = shortcode_atts(array(
+            'id' => 'none',
+        ), $atts);
+    
+	// Code
+    if ($atts['id'] != "none"){
+    // Si attribut
+        $section = get_post( $atts['id'] );
+        $title = get_post_meta( $section->ID, '_startup_reloaded_sections_title', true );
+        $position = get_post_meta( $section->ID, '_startup_reloaded_sections_position', true );
+        $effect = get_post_meta( $section->ID, '_startup_reloaded_sections_effect', true );
+        $background_color = get_post_meta( $section->ID, '_startup_reloaded_sections_background_color', true );
+        $color = get_post_meta( $section->ID, '_startup_reloaded_sections_color', true );
+        $background = wp_get_attachment_image_src( get_post_meta( $section->ID, '_startup_reloaded_sections_background_id', 1 ), 'large' );
+        $background_position = get_post_meta( $section->ID, '_startup_reloaded_sections_background_position', true );
+        $background_video = get_post_meta( $section->ID, '_startup_reloaded_sections_background_video', true );
+        $padding = get_post_meta( $section->ID, '_startup_reloaded_sections_padding', true );
+        $boxed = get_post_meta( $section->ID, '_startup_reloaded_sections_boxed', true );
+        $parallax = get_post_meta( $section->ID, '_startup_reloaded_sections_parallax', true );
+        $button_text = get_post_meta( $section->ID, '_startup_reloaded_sections_button_text', true );
+        $button_url = get_post_meta( $section->ID, '_startup_reloaded_sections_button_url', true );
+        $blank = get_post_meta( $section->ID, '_startup_reloaded_sections_blank', true );
+        ob_start(); ?>
+            <section id="section-<?php echo $atts['id'] ?>" class="section <?php echo $position ?>"  style="<?php if ( $color ){ echo 'color:' . $color . ';'; }; if ( $background && $parallax == '' ){  echo 'background: url(' . $background[0] . '); background-size:cover; background-position: center ' . $background_position . ';';} elseif ( $background_color && $parallax == '' ) { echo 'background: ' . $background_color . ';';} ?>" <?php if ( $parallax ){ echo 'data-parallax="scroll" data-image-src="' . $background[0] . '"'; } ?>>
+                <div class="effect <?php echo $effect; ?>" <?php if (!$background_video) { ?>style="<?php if ( $padding ){ echo 'padding-top:' . $padding . 'px;padding-bottom:' . $padding . 'px;'; } ?>"<?php } ?>>
+                    <?php if ( $background_video ) {?><div class="video" style="<?php if ( $padding ){ echo 'padding-top:' . $padding . 'px;padding-bottom:' . $padding . 'px;'; } ?>"><?php } ?>
+                        <div class="container">
+                            <?php if ( $boxed ){ ?>
+                                <?php if ( $title ){ ?><h2 class="boxed"><?php echo $section->post_title ?></h2><br /><?php } ?>
+                                <p class="boxed"><?php echo $section->post_content ?></p>
+                            <?php } else{ ?>
+                                <?php if ( $title ){ ?><h2><?php echo $section->post_title ?></h2><?php } ?>
+                                <p><?php echo $section->post_content ?></p>
+                            <?php } ?>
+
+                             <?php if ( $button_text ) { ?>
+                                <br />
+                                <a class="btn btn-custom btn-lg" href="<?php echo $button_url ?>"<?php if ( $blank ) { echo ' target="_blank"'; }?>>
+                                    <?php echo $button_text ?>
+                                </a>
+                            <?php } ?>
+                        </div>
+                    <?php if ( $background_video ) {?></div><?php } ?>
+                </div>
+            </section>
+            <?php if ( $background_video ) {?>
+                <div class="player" id="section-background-video-<?php echo $atts['id'] ?>" data-property="{videoURL:'http://youtu.be/<?php echo $background_video ?>', containment:'#section-<?php echo $atts['id'] ?> .video', mute:true, loop:true, opacity:1, showControls:false}"></div>
+            <?php } ?>
+        <?php return ob_get_clean();  
+    } else {
+    // Si pas d'attribut
+        return 'Vous devez renseigner l\'ID de la section dans le shortcode';
+    }
+}
+add_shortcode( 'section', 'startup_reloaded_sections_shortcode' );
 ?>
