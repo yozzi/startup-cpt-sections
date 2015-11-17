@@ -34,24 +34,28 @@ add_action( 'init', 'startup_reloaded_sections_updater' );
 //CPT
 function startup_reloaded_sections() {
 	$labels = array(
-		'name'                => 'Sections',
-		'singular_name'       => 'Section',
-		'menu_name'           => 'Sections',
-		'name_admin_bar'      => 'Sections',
-		'parent_item_colon'   => 'Parent Item:',
-		'all_items'           => 'All Items',
-		'add_new_item'        => 'Add New Item',
-		'add_new'             => 'Add New',
-		'new_item'            => 'New Item',
-		'edit_item'           => 'Edit Item',
-		'update_item'         => 'Update Item',
-		'view_item'           => 'View Item',
-		'search_items'        => 'Search Item',
-		'not_found'           => 'Not found',
-		'not_found_in_trash'  => 'Not found in Trash'
+        'name'                       => _x( 'Sections', 'Taxonomy General Name', 'startup-cpt-sections' ),
+		'singular_name'              => _x( 'Section', 'Taxonomy Singular Name', 'startup-cpt-sections' ),
+		'menu_name'                  => __( 'Sections', 'startup-cpt-sections' ),
+        'name_admin_bar'             => __( 'Sections', 'startup-cpt-sections' ),
+		'all_items'                  => __( 'All Items', 'startup-cpt-sections' ),
+		'parent_item'                => __( 'Parent Item', 'startup-cpt-sections' ),
+		'parent_item_colon'          => __( 'Parent Item:', 'startup-cpt-sections' ),
+		'new_item_name'              => __( 'New Item Name', 'startup-cpt-sections' ),
+		'add_new_item'               => __( 'Add New Item', 'startup-cpt-sections' ),
+		'edit_item'                  => __( 'Edit Item', 'startup-cpt-sections' ),
+		'update_item'                => __( 'Update Item', 'startup-cpt-sections' ),
+		'view_item'                  => __( 'View Item', 'startup-cpt-sections' ),
+		'separate_items_with_commas' => __( 'Separate items with commas', 'startup-cpt-sections' ),
+		'add_or_remove_items'        => __( 'Add or remove items', 'startup-cpt-sections' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'startup-cpt-sections' ),
+		'popular_items'              => __( 'Popular Items', 'startup-cpt-sections' ),
+		'search_items'               => __( 'Search Items', 'startup-cpt-sections' ),
+		'not_found'                  => __( 'Not Found', 'startup-cpt-sections' )
 	);
 	$args = array(
-		'label'               => 'sections',
+        'label'               => __( 'sections', 'startup-cpt-sections' ),
+        'description'         => __( '', 'startup-cpt-home' ),
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'editor', 'revisions' ),
 		'hierarchical'        => true,
@@ -111,59 +115,59 @@ function startup_reloaded_sections_meta() {
 
 	$cmb_box = new_cmb2_box( array(
 		'id'            => $prefix . 'metabox',
-		'title'         => __( 'Section details', 'cmb2' ),
+		'title'         => __( 'Section details', 'startup-cpt-sections' ),
 		'object_types'  => array( 'sections' )
 	) );
     
     $cmb_box->add_field( array(
-		'name'             => __( 'Display title', 'cmb2' ),
+		'name'             => __( 'Display title', 'startup-cpt-sections' ),
 		'id'               => $prefix . 'title',
 		'type'             => 'checkbox'
 	) );
     
     $cmb_box->add_field( array(
-		'name'             => __( 'Content position', 'cmb2' ),
+		'name'             => __( 'Content position', 'startup-cpt-sections' ),
 		'id'               => $prefix . 'position',
 		'type'             => 'select',
 		'show_option_none' => false,
         'default'          => 'center',
 		'options'          => array(
-			'left' => __( 'Left', 'cmb2' ),
-			'center'   => __( 'Center', 'cmb2' ),
-			'right'     => __( 'Right', 'cmb2' )
+			'left' => __( 'Left', 'startup-cpt-sections' ),
+			'center'   => __( 'Center', 'startup-cpt-sections' ),
+			'right'     => __( 'Right', 'startup-cpt-sections' )
 		)
 	) );
     
      $cmb_box->add_field( array(
-		'name'             => __( 'Effect', 'cmb2' ),
+		'name'             => __( 'Effect', 'startup-cpt-sections' ),
 		'id'               => $prefix . 'effect',
 		'type'             => 'select',
 		'show_option_none' => 'none',
         'default'          => 'none',
 		'options'          => array(
-			'light' => __( 'Light', 'cmb2' ),
-			'dark'   => __( 'Dark', 'cmb2' ),
-			'trame-01'     => __( 'Trame 1', 'cmb2' ),
-            'trame-02'     => __( 'Trame 2', 'cmb2' )
+			'light' => __( 'Light', 'startup-cpt-sections' ),
+			'dark'   => __( 'Dark', 'startup-cpt-sections' ),
+			'trame-01'     => __( 'Trame 1', 'startup-cpt-sections' ),
+            'trame-02'     => __( 'Trame 2', 'startup-cpt-sections' )
 		)
 	) );
     
     $cmb_box->add_field( array(
-        'name'    => __( 'Background color', 'cmb2' ),
+        'name'    => __( 'Background color', 'startup-cpt-sections' ),
         'id'      => $prefix . 'background_color',
         'type'    => 'colorpicker',
         'default' => '#fff'
     ) );
     
     $cmb_box->add_field( array(
-        'name'    => __( 'Text color', 'cmb2' ),
+        'name'    => __( 'Text color', 'startup-cpt-sections' ),
         'id'      => $prefix . 'color',
         'type'    => 'colorpicker',
         'default' => ''
     ) );
     
     $cmb_box->add_field( array(
-		'name' => __( 'Background image', 'cmb2' ),
+		'name' => __( 'Background image', 'startup-cpt-sections' ),
 		'id'   => $prefix . 'background',
 		'type' => 'file',
         // Optionally hide the text input for the url:
@@ -173,60 +177,60 @@ function startup_reloaded_sections_meta() {
 	) );
     
     $cmb_box->add_field( array(
-		'name'             => __( 'Background image position', 'cmb2' ),
+		'name'             => __( 'Background image position', 'startup-cpt-sections' ),
 		'id'               => $prefix . 'background_position',
 		'type'             => 'select',
         'default'          => 'center',
 		'options'          => array(
-			'top' => __( 'Top', 'cmb2' ),
-			'center'   => __( 'Center', 'cmb2' ),
-			'bottom'     => __( 'Bottom', 'cmb2' )
+			'top' => __( 'Top', 'startup-cpt-sections' ),
+			'center'   => __( 'Center', 'startup-cpt-sections' ),
+			'bottom'     => __( 'Bottom', 'startup-cpt-sections' )
 		)
 	) );
     
     $cmb_box->add_field( array(
-        'name'    => __( 'Video', 'cmb2' ),
-        'desc'             => __( 'YouTube url for background video.', 'cmb2' ),
+        'name'    => __( 'Video', 'startup-cpt-sections' ),
+        'desc'             => __( 'YouTube url for background video.', 'startup-cpt-sections' ),
         'id'      => $prefix . 'background_video',
         'type'    => 'text'
     ) );
     
     $cmb_box->add_field( array(
-		'name'       => __( 'Padding', 'cmb2' ),
-        'desc'             => __( 'Padding in px', 'cmb2' ),
+		'name'       => __( 'Padding', 'startup-cpt-sections' ),
+        'desc'             => __( 'Padding in px', 'startup-cpt-sections' ),
 		'id'         => $prefix . 'padding',
 		'type'       => 'text'
 	) );
     
     $cmb_box->add_field( array(
-		'name'             => __( 'Boxed', 'cmb2' ),
-        'desc'             => __( 'Put the text inside a box', 'cmb2' ),
+		'name'             => __( 'Boxed', 'startup-cpt-sections' ),
+        'desc'             => __( 'Put the text inside a box', 'startup-cpt-sections' ),
 		'id'               => $prefix . 'boxed',
 		'type'             => 'checkbox'
 	) );
     
     $cmb_box->add_field( array(
-		'name'             => __( 'Parallax', 'cmb2' ),
-        'desc'             => __( 'Add parallax effect to the background', 'cmb2' ),
+		'name'             => __( 'Parallax', 'startup-cpt-sections' ),
+        'desc'             => __( 'Add parallax effect to the background', 'startup-cpt-sections' ),
 		'id'               => $prefix . 'parallax',
 		'type'             => 'checkbox'
 	) );
     
     $cmb_box->add_field( array(
-		'name'       => __( 'Button text', 'cmb2' ),
+		'name'       => __( 'Button text', 'startup-cpt-sections' ),
 		'id'         => $prefix . 'button_text',
 		'type'       => 'text'
 	) );
     
     $cmb_box->add_field( array(
-		'name'       => __( 'Button url', 'cmb2' ),
+		'name'       => __( 'Button url', 'startup-cpt-sections' ),
 		'id'         => $prefix . 'button_url',
 		'type'       => 'text'
 	) );
     
     $cmb_box->add_field( array(
-		'name'             => __( 'Button target', 'cmb2' ),
-        'desc'             => __( '_blank', 'cmb2' ),
+		'name'             => __( 'Button target', 'startup-cpt-sections' ),
+        'desc'             => __( '_blank', 'startup-cpt-sections' ),
 		'id'               => $prefix . 'blank',
 		'type'             => 'checkbox'
 	) );
