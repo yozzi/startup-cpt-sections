@@ -1,0 +1,27 @@
+/*--------------------------------------------------------------
+## StartUp CPT Sections
+--------------------------------------------------------------*/
+
+section.section {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.section.left {
+    text-align: left
+}
+
+.section.center {
+    text-align: center
+}
+
+.section.right {
+    text-align: right
+}
+
+.section h2.boxed,
+.section p.boxed {
+    padding: 10px 15px;
+    display: inline-block;
+    clear: both;
+}

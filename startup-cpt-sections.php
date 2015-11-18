@@ -297,4 +297,11 @@ function startup_reloaded_sections_shortcode( $atts ) {
     }
 }
 add_shortcode( 'section', 'startup_reloaded_sections_shortcode' );
+
+// Enqueue scripts and styles.
+function startup_cpt_sections_scripts() {
+    wp_enqueue_style( 'startup-cpt-sections-style', plugins_url( '/css/startup-cpt-sections.css', __FILE__ ), array( ), false, 'all' );
+}
+
+add_action( 'wp_enqueue_scripts', 'startup_cpt_sections_scripts' );
 ?>
