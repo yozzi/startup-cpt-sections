@@ -7,6 +7,11 @@ Version: 0.1.0
 Text Domain: startup-cpt-sections
 */
 
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 //GitHub Plugin Updater
 function startup_reloaded_sections_updater() {
 	include_once 'lib/updater.php';
