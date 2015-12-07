@@ -303,6 +303,53 @@ function startup_reloaded_sections_shortcode( $atts ) {
 }
 add_shortcode( 'section', 'startup_reloaded_sections_shortcode' );
 
+// Shortcode UI
+/**
+ * If Shortcake isn't active, then this demo plugin doesn't work either
+ */
+
+function shortcode_ui_detection() {
+	if ( !function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
+		add_action( 'admin_notices', 'shortcode_ui_dev_example_notices' );
+	}
+}
+function shortcode_ui_dev_example_notices() {
+	if ( current_user_can( 'activate_plugins' ) ) {
+		echo '<div class="error message"><p>Shortcode UI plugin must be active for Shortcode UI Example plugin to function.</p></div>';
+	}
+}
+
+add_action( 'init', 'shortcode_ui_detection' );
+
+function startup_cpt_sections_shortcode_ui() {
+
+    shortcode_ui_register_for_shortcode(
+        'sections',
+        array(
+            'label' => 'Sections',
+            'listItemImage' => 'dashicons-editor-table',
+            'attrs' => array(
+                array(
+                    'label' => 'Quote',
+                    'attr'  => 'content',
+                    'type'  => 'textarea',
+                ),
+                array(
+                    'label'       => 'Cite',
+                    'attr'        => 'source',
+                    'type'        => 'text',
+                    'placeholder' => 'Firstname Lastname',
+                    'description' => 'Optional',
+                ),
+            ),
+        )
+    );
+};
+
+if ( function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
+    add_action( 'init', 'startup_cpt_sections_shortcode_ui');
+}
+
 // Enqueue scripts and styles.
 function startup_cpt_sections_scripts() {
     wp_enqueue_style( 'startup-cpt-sections-style', plugins_url( '/css/startup-cpt-sections.css', __FILE__ ), array( ), false, 'all' );
