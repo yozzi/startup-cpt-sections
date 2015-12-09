@@ -276,10 +276,10 @@ function startup_reloaded_sections_shortcode( $atts ) {
                         <div class="container">
                             <?php if ( $boxed ){ ?>
                                 <?php if ( $title ){ ?><h2 class="boxed"><?php echo $section->post_title ?></h2><br /><?php } ?>
-                                <p class="boxed"><?php echo $section->post_content ?></p>
+                                <p class="boxed"><?php echo do_shortcode($section->post_content) ?></p>
                             <?php } else{ ?>
                                 <?php if ( $title ){ ?><h2><?php echo $section->post_title ?></h2><?php } ?>
-                                <p><?php echo $section->post_content ?></p>
+                                <p><?php echo do_shortcode($section->post_content) ?></p>
                             <?php } ?>
 
                              <?php if ( $button_text ) { ?>
