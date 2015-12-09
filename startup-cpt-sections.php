@@ -13,7 +13,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 //GitHub Plugin Updater
-function startup_reloaded_sections_updater() {
+function startup_cpt_sections_updater() {
 	include_once 'lib/updater.php';
 	//define( 'WP_GITHUB_FORCE_UPDATE', true );
 	if ( is_admin() ) {
@@ -34,10 +34,10 @@ function startup_reloaded_sections_updater() {
 	}
 }
 
-//add_action( 'init', 'startup_reloaded_sections_updater' );
+//add_action( 'init', 'startup_cpt_sections_updater' );
 
 //CPT
-function startup_reloaded_sections() {
+function startup_cpt_sections() {
 	$labels = array(
         'name'                       => _x( 'Sections', 'Taxonomy General Name', 'startup-cpt-sections' ),
 		'singular_name'              => _x( 'Section', 'Taxonomy Singular Name', 'startup-cpt-sections' ),
@@ -82,18 +82,18 @@ function startup_reloaded_sections() {
 
 }
 
-add_action( 'init', 'startup_reloaded_sections', 0 );
+add_action( 'init', 'startup_cpt_sections', 0 );
 
 //Flusher les permalink à l'activation du plugin pour qu'ils fonctionnent sans mise à jour manuelle
-function startup_reloaded_sections_rewrite_flush() {
-    startup_reloaded_sections();
+function startup_cpt_sections_rewrite_flush() {
+    startup_cpt_sections();
     flush_rewrite_rules();
 }
 
-register_activation_hook( __FILE__, 'startup_reloaded_sections_rewrite_flush' );
+register_activation_hook( __FILE__, 'startup_cpt_sections_rewrite_flush' );
 
 // Capabilities
-function startup_reloaded_sections_caps() {
+function startup_cpt_sections_caps() {
 	$role_admin = get_role( 'administrator' );
 	$role_admin->add_cap( 'edit_section' );
 	$role_admin->add_cap( 'read_section' );
@@ -110,13 +110,13 @@ function startup_reloaded_sections_caps() {
 	$role_admin->add_cap( 'edit_published_sections' );
 }
 
-register_activation_hook( __FILE__, 'startup_reloaded_sections_caps' );
+register_activation_hook( __FILE__, 'startup_cpt_sections_caps' );
 
 // Metaboxes
 
-function startup_reloaded_sections_meta() {
+function startup_cpt_sections_meta() {
 	// Start with an underscore to hide fields from custom fields list
-	$prefix = '_startup_reloaded_sections_';
+	$prefix = '_startup_cpt_sections_';
 
 	$cmb_box = new_cmb2_box( array(
 		'id'            => $prefix . 'metabox',
@@ -241,10 +241,10 @@ function startup_reloaded_sections_meta() {
 	) );
 }
 
-add_action( 'cmb2_admin_init', 'startup_reloaded_sections_meta' );
+add_action( 'cmb2_admin_init', 'startup_cpt_sections_meta' );
 
 // Shortcode
-function startup_reloaded_sections_shortcode( $atts ) {
+function startup_cpt_sections_shortcode( $atts ) {
 
 	// Attributes
     $atts = shortcode_atts(array(
@@ -255,20 +255,20 @@ function startup_reloaded_sections_shortcode( $atts ) {
     if ($atts['id'] != "none"){
     // Si attribut
         $section = get_post( $atts['id'] );
-        $title = get_post_meta( $section->ID, '_startup_reloaded_sections_title', true );
-        $position = get_post_meta( $section->ID, '_startup_reloaded_sections_position', true );
-        $effect = get_post_meta( $section->ID, '_startup_reloaded_sections_effect', true );
-        $background_color = get_post_meta( $section->ID, '_startup_reloaded_sections_background_color', true );
-        $color = get_post_meta( $section->ID, '_startup_reloaded_sections_color', true );
-        $background = wp_get_attachment_image_src( get_post_meta( $section->ID, '_startup_reloaded_sections_background_id', 1 ), 'large' );
-        $background_position = get_post_meta( $section->ID, '_startup_reloaded_sections_background_position', true );
-        $background_video = get_post_meta( $section->ID, '_startup_reloaded_sections_background_video', true );
-        $padding = get_post_meta( $section->ID, '_startup_reloaded_sections_padding', true );
-        $boxed = get_post_meta( $section->ID, '_startup_reloaded_sections_boxed', true );
-        $parallax = get_post_meta( $section->ID, '_startup_reloaded_sections_parallax', true );
-        $button_text = get_post_meta( $section->ID, '_startup_reloaded_sections_button_text', true );
-        $button_url = get_post_meta( $section->ID, '_startup_reloaded_sections_button_url', true );
-        $blank = get_post_meta( $section->ID, '_startup_reloaded_sections_blank', true );
+        $title = get_post_meta( $section->ID, '_startup_cpt_sections_title', true );
+        $position = get_post_meta( $section->ID, '_startup_cpt_sections_position', true );
+        $effect = get_post_meta( $section->ID, '_startup_cpt_sections_effect', true );
+        $background_color = get_post_meta( $section->ID, '_startup_cpt_sections_background_color', true );
+        $color = get_post_meta( $section->ID, '_startup_cpt_sections_color', true );
+        $background = wp_get_attachment_image_src( get_post_meta( $section->ID, '_startup_cpt_sections_background_id', 1 ), 'large' );
+        $background_position = get_post_meta( $section->ID, '_startup_cpt_sections_background_position', true );
+        $background_video = get_post_meta( $section->ID, '_startup_cpt_sections_background_video', true );
+        $padding = get_post_meta( $section->ID, '_startup_cpt_sections_padding', true );
+        $boxed = get_post_meta( $section->ID, '_startup_cpt_sections_boxed', true );
+        $parallax = get_post_meta( $section->ID, '_startup_cpt_sections_parallax', true );
+        $button_text = get_post_meta( $section->ID, '_startup_cpt_sections_button_text', true );
+        $button_url = get_post_meta( $section->ID, '_startup_cpt_sections_button_url', true );
+        $blank = get_post_meta( $section->ID, '_startup_cpt_sections_blank', true );
         ob_start(); ?>
             <section id="section-<?php echo $atts['id'] ?>" class="section <?php echo $position ?>"  style="<?php if ( $color ){ echo 'color:' . $color . ';'; }; if ( $background && $parallax == '' ){  echo 'background: url(' . $background[0] . '); background-size:cover; background-position: center ' . $background_position . ';';} elseif ( $background_color && $parallax == '' ) { echo 'background: ' . $background_color . ';';} ?>" <?php if ( $parallax ){ echo 'data-parallax="scroll" data-image-src="' . $background[0] . '"'; } ?>>
                 <div class="effect <?php echo $effect; ?>" <?php if (!$background_video) { ?>style="<?php if ( $padding ){ echo 'padding-top:' . $padding . 'px;padding-bottom:' . $padding . 'px;'; } ?>"<?php } ?>>
@@ -301,7 +301,7 @@ function startup_reloaded_sections_shortcode( $atts ) {
         return 'Vous devez renseigner l\'ID de la section dans le shortcode';
     }
 }
-add_shortcode( 'section', 'startup_reloaded_sections_shortcode' );
+add_shortcode( 'section', 'startup_cpt_sections_shortcode' );
 
 // Shortcode UI
 /**
@@ -331,11 +331,6 @@ function startup_cpt_sections_shortcode_ui() {
             'label' => esc_html__( 'Sections', 'startup-cpt-sections' ),
             'listItemImage' => 'dashicons-editor-table',
             'attrs' => array(
-                array(
-                    'label' => 'Background',
-                    'attr'  => 'bg',
-                    'type'  => 'color',
-                ),
                 array(
                     'label'       => esc_html__( 'ID', 'startup-cpt-sections' ),
                     'attr'        => 'id',
