@@ -1,0 +1,250 @@
+# Loco Gettext template
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: StartUp CPT Sections\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Thu Jan 14 2016 09:15:59 GMT-0500 (Est)\n"
+"POT-Revision-Date: Thu Jan 14 2016 09:16:02 GMT-0500 (Est)\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#. Name of the plugin
+msgid "StartUp CPT Sections"
+msgstr ""
+
+#. Description of the plugin
+msgid "Le plugin pour activer le Custom Post Sections"
+msgstr ""
+
+#. Author of the plugin
+msgid "Yann Caplain"
+msgstr ""
+
+#: ../startup-cpt-sections.php:43
+msgctxt "Taxonomy General Name"
+msgid "Sections"
+msgstr ""
+
+#: ../startup-cpt-sections.php:44
+msgctxt "Taxonomy Singular Name"
+msgid "Section"
+msgstr ""
+
+#: ../startup-cpt-sections.php:45 ../startup-cpt-sections.php:46 ../startup-cpt-
+#: sections.php:350
+msgid "Sections"
+msgstr ""
+
+#: ../startup-cpt-sections.php:47
+msgid "All Items"
+msgstr ""
+
+#: ../startup-cpt-sections.php:48
+msgid "Parent Item"
+msgstr ""
+
+#: ../startup-cpt-sections.php:49
+msgid "Parent Item:"
+msgstr ""
+
+#: ../startup-cpt-sections.php:50
+msgid "New Item Name"
+msgstr ""
+
+#: ../startup-cpt-sections.php:51
+msgid "Add New Item"
+msgstr ""
+
+#: ../startup-cpt-sections.php:52
+msgid "Edit Item"
+msgstr ""
+
+#: ../startup-cpt-sections.php:53
+msgid "Update Item"
+msgstr ""
+
+#: ../startup-cpt-sections.php:54
+msgid "View Item"
+msgstr ""
+
+#: ../startup-cpt-sections.php:55
+msgid "Separate items with commas"
+msgstr ""
+
+#: ../startup-cpt-sections.php:56
+msgid "Add or remove items"
+msgstr ""
+
+#: ../startup-cpt-sections.php:57
+msgid "Choose from the most used"
+msgstr ""
+
+#: ../startup-cpt-sections.php:58
+msgid "Popular Items"
+msgstr ""
+
+#: ../startup-cpt-sections.php:59
+msgid "Search Items"
+msgstr ""
+
+#: ../startup-cpt-sections.php:60
+msgid "Not Found"
+msgstr ""
+
+#: ../startup-cpt-sections.php:63
+msgid "sections"
+msgstr ""
+
+#: ../startup-cpt-sections.php:129
+msgid "CMB2 plugin or StartUp Reloaded theme must be active to use custom metaboxes."
+msgstr ""
+
+#: ../startup-cpt-sections.php:142
+msgid "Section details"
+msgstr ""
+
+#: ../startup-cpt-sections.php:147
+msgid "Display title"
+msgstr ""
+
+#: ../startup-cpt-sections.php:153
+msgid "Content position"
+msgstr ""
+
+#: ../startup-cpt-sections.php:159
+msgid "Left"
+msgstr ""
+
+#: ../startup-cpt-sections.php:160 ../startup-cpt-sections.php:210
+msgid "Center"
+msgstr ""
+
+#: ../startup-cpt-sections.php:161
+msgid "Right"
+msgstr ""
+
+#: ../startup-cpt-sections.php:166
+msgid "Effect"
+msgstr ""
+
+#: ../startup-cpt-sections.php:172
+msgid "Light"
+msgstr ""
+
+#: ../startup-cpt-sections.php:173
+msgid "Dark"
+msgstr ""
+
+#: ../startup-cpt-sections.php:174
+msgid "Trame 1"
+msgstr ""
+
+#: ../startup-cpt-sections.php:175
+msgid "Trame 2"
+msgstr ""
+
+#: ../startup-cpt-sections.php:180
+msgid "Background color"
+msgstr ""
+
+#: ../startup-cpt-sections.php:187
+msgid "Text color"
+msgstr ""
+
+#: ../startup-cpt-sections.php:194
+msgid "Background image"
+msgstr ""
+
+#: ../startup-cpt-sections.php:204
+msgid "Background image position"
+msgstr ""
+
+#: ../startup-cpt-sections.php:209
+msgid "Top"
+msgstr ""
+
+#: ../startup-cpt-sections.php:211
+msgid "Bottom"
+msgstr ""
+
+#: ../startup-cpt-sections.php:216
+msgid "Video"
+msgstr ""
+
+#: ../startup-cpt-sections.php:217
+msgid "YouTube url for background video."
+msgstr ""
+
+#: ../startup-cpt-sections.php:223
+msgid "Padding"
+msgstr ""
+
+#: ../startup-cpt-sections.php:224
+msgid "Padding in px"
+msgstr ""
+
+#: ../startup-cpt-sections.php:230
+msgid "Boxed"
+msgstr ""
+
+#: ../startup-cpt-sections.php:231
+msgid "Put the text inside a box"
+msgstr ""
+
+#: ../startup-cpt-sections.php:237
+msgid "Parallax"
+msgstr ""
+
+#: ../startup-cpt-sections.php:238
+msgid "Add parallax effect to the background"
+msgstr ""
+
+#: ../startup-cpt-sections.php:244
+msgid "Button text"
+msgstr ""
+
+#: ../startup-cpt-sections.php:250
+msgid "Button url"
+msgstr ""
+
+#: ../startup-cpt-sections.php:256
+msgid "Button target"
+msgstr ""
+
+#: ../startup-cpt-sections.php:257
+msgid "_blank"
+msgstr ""
+
+#: ../startup-cpt-sections.php:338
+msgid "Shortcake plugin must be active to use fast shortcodes."
+msgstr ""
+
+#: ../startup-cpt-sections.php:354
+msgid "ID"
+msgstr ""
+
+#: ../lib/updater.php:434
+msgid ""
+"The plugin has been updated, but could not be reactivated. Please reactivate "
+"it manually."
+msgstr ""
+
+#: ../lib/updater.php:435
+msgid "Plugin reactivated successfully."
+msgstr ""
