@@ -3,7 +3,7 @@
 Plugin Name: StartUp CPT Sections
 Description: Le plugin pour activer le Custom Post Sections
 Author: Yann Caplain
-Version: 0.1.0
+Version: 1.0.0
 Text Domain: startup-cpt-sections
 Domain Path: /languages
 */
